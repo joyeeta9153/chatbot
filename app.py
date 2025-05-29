@@ -6,7 +6,7 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 load_dotenv() 
-open_api=os.getenv("OPEN_API_KEY")
+os.environ["OPENAI_API_KEY"]st.secrets("OPEN_API_KEY")
 #langsmith
 os.environ["LANGCHAIN_TRACING_V2"]="true"
 langchain_api=os.getenv("LANGCHAIN_API_KEY")
@@ -27,7 +27,7 @@ input_text=st.text_input("Search the topic you want")
 
 # openAI llm
 
-llm=ChatOpenAI(model_name="gpt-3.5-turbo",openai_api_key=open_api)
+llm=ChatOpenAI(model_name="gpt-3.5-turbo")
 output_parser=StrOutputParser()
 chain = prompt | llm | output_parser
 
