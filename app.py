@@ -28,7 +28,7 @@ input_text=st.text_input("Search the topic you want")
 
 # openAI llm
 
-llm=ChatOpenAI(model_name="gpt-3.5-turbo")
+llm=ChatOpenAI(model_name="gpt-3.5-turbo",openai_api_key=open_api)
 output_parser=StrOutputParser()
 chain = prompt | llm | output_parser
 
