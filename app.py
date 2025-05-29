@@ -6,7 +6,7 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 load_dotenv() 
-open_api = st.secrets["OPENAI_API_KEY"]
+open_api =  os.getenv("OPENAI_API_KEY") or st.secrets["OPENAI_API_KEY"]
 os.environ["OPENAI_API_KEY"] = open_api
 #langsmith
 os.environ["LANGCHAIN_TRACING_V2"]="true"
