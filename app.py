@@ -33,10 +33,6 @@ output_parser=StrOutputParser()
 chain = prompt | llm | output_parser
 
 if input_text:
-    try:
         response = chain.invoke({'question': input_text})
         st.write(response)
-    except Exception as e:
-        import traceback
-        st.error("An error occurred.")
-        st.code(traceback.format_exc())
+   
